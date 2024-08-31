@@ -99,7 +99,9 @@
 
 <script>
   if(<?= $siswa['st'] ?> == 2){
-    alert("Keterima cek messages");
+    alert("Mohon maaf anda tidak bisa melanjutkan proses pendaftaran dikarenakan anda Tidak Lolos dalam tahap seleksi administrasi");
+  }else if(<?= $siswa['st'] ?> == 1){
+    alert("Selamat anda telah diterima untuk melanjutkan PENDATARAN diharapkan untuk datang ke SMK Profita Bandung dengan membawa surat lolos seleksi administrasi yang ada di fitur pesan");
   }
 </script>
 <!-- =========== -->
