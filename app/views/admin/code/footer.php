@@ -10,7 +10,7 @@
     <script src="public/assets/admin/vendor/simple-datatables/simple-datatables.js"></script>
     <script src="public/assets/admin/vendor/tinymce/tinymce.min.js"></script>
     <script src="public/assets/admin/vendor/php-email-form/validate.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- Datables --> 
     <script src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
     <!-- <script src="/DataTables/datatables.js"></script> -->
