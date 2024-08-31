@@ -16,7 +16,7 @@
       <li class="nav-item dropdown pe-3">
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-          <img src="<?= BASEURL ?>public/assets/img/profile/contoh.jpeg" alt="Profile" class="rounded-circle">
+          <img src="public/assets/img/profile/contoh.jpeg" alt="Profile" class="rounded-circle">
           <span class="d-none d-md-block dropdown-toggle ps-2"><?= $data['auth']['nama'] ?></span>
         </a><!-- End Profile Iamge Icon -->
 
@@ -34,7 +34,7 @@
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="<?= BASEURL ?>LoginController/logout">
+            <a class="dropdown-item d-flex align-items-center" href="LoginController/logout">
               <i class="bi bi-box-arrow-right"></i>
               <span>Sign Out</span>
             </a>
@@ -56,7 +56,7 @@
   <ul class="sidebar-nav" id="sidebar-nav">
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="<?= BASEURL ?>ViewAdminController/">
+      <a class="nav-link collapsed" href="ViewAdminController/">
         <i class="bi bi-person"></i>
         <span>Dashboard</span>
       </a>
@@ -100,7 +100,7 @@
         <!-- Pie Chart -->
         <canvas id="pieChart" style="max-height: 400px;"></canvas>
         <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script>
           document.addEventListener("DOMContentLoaded", () => {
 
@@ -165,14 +165,14 @@
             <th class="text-center">No</th>
             <th class="text-center">Nama</th>
             <th class="text-center">Asal Sekolah</th>
-            <th class="text-center">No.Telpon</th>
+            <th class="text-center">No.Telepon</th>
             <th class="text-center">Status</th>
           </thead>
           <tbody>
             <?php foreach ($data["list_siswa"] as $key => $value) { ?>
               <tr>
                 <td class="text-center">
-                  <img style="width: 30px; height: 30px; border-radius: 100%;" src="<?= BASEURL ?>public/assets/img/profile/contoh.jpeg" alt="foto">
+                  <img style="width: 30px; height: 30px; border-radius: 100%;" src="public/assets/img/profile/contoh.jpeg" alt="foto">
                 </td>
                 <td class="text-center"><?= $value["nama"] ?></td>
                 <td class="text-center"><?= $value["asal_sekolah"] ?></td>
@@ -251,4 +251,3 @@
 
   });
 </script>
-
