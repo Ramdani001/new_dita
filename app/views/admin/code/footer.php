@@ -67,7 +67,7 @@
                                         <button class="btn btn-success text-light" type="button" data-bs-toggle="modal" data-bs-target="#editModal" data-siswa='${JSON.stringify(item)}'>
                                             <i class="ri-file-edit-line"></i>
                                         </button>
-                                        <a class="btn btn-secondary text-light" type="button" target="_blank" href="${'ViewAdminController/PrintSiswa/' + item.id_siswa}">
+                                        <a class="btn btn-secondary text-light" type="button" target="_blank" href="${'<?= BASEURL ?>ViewAdminController/PrintSiswa/' + item.id_siswa}">
                                             <i class="bi bi-printer"></i>
                                         </a>
                                     </div>
