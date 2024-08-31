@@ -659,7 +659,7 @@
 </div>
 <!-- Modal Detail -->
 
-<input type="hidden" value="" id="base_url">
+<input type="hidden" value="<?= BASEURL ?>" id="base_url">
 <!-- Modal Edit -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
   <div class="modal-dialog">
