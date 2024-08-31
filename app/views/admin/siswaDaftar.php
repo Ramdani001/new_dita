@@ -95,10 +95,10 @@
 
     <div class="card">
       <div class="card-body">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
+        <!-- <div style="display: flex; justify-content: space-between; align-items: center;">
           <h5 class="card-title">Siswa Daftar</h5>
           <input type="text" name="search" id="search" class="shadow-md" placeholder="Masukan NISN" style="height: 30px; width: 300px; padding: 10px; border-radius: 5px;" onpress="search(this.value)">
-        </div>
+        </div> -->
         <table class="table table-hover" id="siswaTable">
           <thead>
             <th class="text-center">No</th>
