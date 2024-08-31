@@ -228,10 +228,10 @@
             <input type="text" class="form-control" id="det_nisn" disabled>
           </div>
           <!-- NIK -->
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="det_nik" class="form-label">NIK</label>
             <input type="text" class="form-control" id="det_nik" disabled>
-          </div>
+          </div> -->
           <!-- Kewarganegaraan -->
           <div class="mb-3">
             <label for="det_kewarganegaraan" class="form-label">Kewarganegaraan</label>
@@ -293,35 +293,35 @@
             <input type="text" class="form-control" id="det_biayai" disabled>
           </div> -->
           <!-- SD -->
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="det_sd" class="form-label">SD</label>
             <input type="text" class="form-control" id="det_sd" disabled>
-          </div>
+          </div> -->
           <!-- Jurusan -->
           <div class="mb-3">
             <label for="det_jurusan" class="form-label">Jurusan</label>
             <input type="text" class="form-control" id="det_jurusan" disabled>
           </div>
           <!-- SMP -->
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="det_smp" class="form-label">SMP</label>
             <input type="text" class="form-control" id="det_smp" disabled>
-          </div>
+          </div> -->
           <!-- No.KIP -->
           <!-- <div class="mb-3">
             <label for="det_no_kip" class="form-label">No.KIP</label>
             <input type="text" class="form-control" id="det_no_kip" disabled>
           </div> -->
           <!-- No.KK -->
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="det_no_kk" class="form-label">No.KK</label>
             <input type="text" class="form-control" id="det_no_kk" disabled>
-          </div>
+          </div> -->
           <!-- Kepala Keluarga -->
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="det_kepala_keluarga" class="form-label">Kepala Keluarga</label>
             <input type="text" class="form-control" id="det_kepala_keluarga" disabled>
-          </div>
+          </div> -->
 
           <!-- Bawah -->
         </div>
@@ -439,15 +439,15 @@
             <input type="text" class="form-control" id="det_ayah" disabled>
           </div>
           <!-- Status Ayah -->
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="det_stat_ayah" class="form-label">Status Ayah</label>
             <input type="text" class="form-control" id="det_stat_ayah" disabled>
-          </div>
+          </div> -->
           <!-- NIK -->
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="det_nik_ayah" class="form-label">NIK</label>
             <input type="text" class="form-control" id="det_nik_ayah" disabled>
-          </div>
+          </div> -->
           <!-- Tempat Lahir -->
           <div class="mb-3">
             <label for="det_lahir_ayah" class="form-label">Tempat Lahir</label>
@@ -485,10 +485,10 @@
               <input type="text" class="form-control" id="det_stat_ibu" disabled>
             </div> -->
             <!-- NIK -->
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <label for="det_nik_ibu" class="form-label">NIK</label>
               <input type="text" class="form-control" id="det_nik_ibu" disabled>
-            </div>
+            </div> -->
             <!-- Tempat Lahir -->
             <div class="mb-3">
               <label for="det_lahir_ibu" class="form-label">Tempat Lahir</label>
@@ -500,14 +500,46 @@
               <input type="text" class="form-control" id="det_pendidikan_ibu" disabled>
             </div>
             <!-- Pekerjaan -->
-            <!-- <div class="mb-3">
+            <div class="mb-3">
               <label for="det_pekerjaan_ibu" class="form-label">Pekerjaan</label>
               <input type="text" class="form-control" id="det_pekerjaan_ibu" disabled>
-            </div> -->
+            </div>
             <!-- Penghasilan -->
             <div class="mb-3">
               <label for="det_penghasilan_ibu" class="form-label">Penghasilan</label>
               <input type="text" class="form-control" id="det_penghasilan_ibu" disabled>
+            </div>
+          </div>
+        <!-- IBU -->
+        <!-- IBU -->
+            <h6>
+              <u>Wali</u>
+            </h6>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <!-- Nama Ibu -->
+            <div class="mb-3">
+              <label for="det_ibu" class="form-label">Nama Wali</label>
+              <input type="text" class="form-control" id="name_wali" disabled>
+            </div>
+            <!-- NIK -->
+            <div class="mb-3">
+              <label for="det_nik_ibu" class="form-label">No. Wali</label>
+              <input type="text" class="form-control" id="no_wali" disabled>
+            </div>
+            <!-- Tempat Lahir -->
+            <div class="mb-3">
+              <label for="det_lahir_ibu" class="form-label">Hubungan Wali</label>
+              <input type="text" class="form-control" id="hubungan_wali" disabled>
+            </div>
+            <!-- Pendidikan -->
+            <div class="mb-3">
+              <label for="det_pendidikan_ibu" class="form-label">Pekerjaan Wali</label>
+              <input type="text" class="form-control" id="pekerjaan_wali" disabled>
+            </div>
+            <!-- Penghasilan -->
+            <div class="mb-3">
+              <label for="det_penghasilan_ibu" class="form-label">Alamat Wali</label>
+              <input type="text" class="form-control" id="alamat_wali" disabled>
             </div>
           </div>
         <!-- IBU -->
@@ -742,7 +774,7 @@
         document.getElementById('det_asal_sekolah').value = siswa.asal_sekolah;
         // document.getElementById('det_npsn_asal_sekolah').value = siswa.npsn_sekolah_asal;
         document.getElementById('det_nisn').value = siswa.nisn;
-        document.getElementById('det_nik').value = siswa.nik;
+        // document.getElementById('det_nik').value = siswa.nik;
 
         document.getElementById('det_kewarganegaraan').value = siswa.kewarganegaraan;
         document.getElementById('det_tmp_lahir').value = siswa.tempat_lhir;
@@ -756,13 +788,13 @@
         document.getElementById('det_email').value = siswa.email;
         document.getElementById('det_phone').value = siswa.no_telp;
         // document.getElementById('det_biayai').value = siswa.biaya_sekolah;
-        document.getElementById('det_sd').value = siswa.sd;
+        // document.getElementById('det_sd').value = siswa.sd;
         document.getElementById('det_jurusan').value = siswa.jurusan;
-        document.getElementById('det_smp').value = siswa.smp;
+        // document.getElementById('det_smp').value = siswa.smp;
         // document.getElementById('det_no_kip').value = siswa.kip;
         // document.getElementById('det_no_kip').value = siswa.kip;
-        document.getElementById('det_no_kk').value = siswa.no_kk;
-        document.getElementById('det_kepala_keluarga').value = siswa.kepala_keluarga;
+        // document.getElementById('det_no_kk').value = siswa.no_kk;
+        // document.getElementById('det_kepala_keluarga').value = siswa.kepala_keluarga;
 
         document.getElementById('det_alamat').value = siswa.alamat;
         document.getElementById('det_rt').value = siswa.rt;
@@ -776,8 +808,8 @@
         // document.getElementById('det_jarak_kesekolah').value = siswa.jarak_sekolah;
         // document.getElementById('det_tempuh').value = siswa.waktu_tempuh;
         document.getElementById('det_ayah').value = siswa.nama_ayah;
-        document.getElementById('det_stat_ayah').value = siswa.status_ayah;
-        document.getElementById('det_nik_ayah').value = siswa.nik_ayah;
+        // document.getElementById('det_stat_ayah').value = siswa.status_ayah;
+        // document.getElementById('det_nik_ayah').value = siswa.nik_ayah;
         document.getElementById('det_lahir_ayah').value = siswa.tgl_lhr_ayah;
         document.getElementById('det_pendidikan_ayah').value = siswa.pendidikan_ayah;
         document.getElementById('det_pekerjaan_ayah').value = siswa.pekerjaan_ayah;
@@ -787,9 +819,17 @@
         document.getElementById('det_ibu').value = siswa.nama_ibu;
         document.getElementById('det_lahir_ibu').value = siswa.tgl_lhr_ibu;
         document.getElementById('det_pendidikan_ibu').value = siswa.pendidikan_ibu;
-        // document.getElementById('det_pekerjaan_ibu').value = siswa.pekerjaan_ibu;
+        document.getElementById('det_pekerjaan_ibu').value = siswa.pekerjaan_ibu;
         document.getElementById('det_penghasilan_ibu').value = siswa.penghasilan_ibu;
-        document.getElementById('det_nik_ibu').value = siswa.nik_ibu;
+        // document.getElementById('det_nik_ibu').value = siswa.nik_ibu;
+
+        // Wali
+        document.getElementById('name_wali').value = siswa.name_wali;
+        document.getElementById('no_wali').value = siswa.no_wali;
+        document.getElementById('hubungan_wali').value = siswa.hubungan_wali;
+        // document.getElementById('det_pekerjaan_ibu').value = siswa.pekerjaan_ibu;
+        document.getElementById('pekerjaan_wali').value = siswa.pekerjaan_wali;
+        document.getElementById('alamat_wali').value = siswa.alamat_wali;
 
         
         // Download Berkas
