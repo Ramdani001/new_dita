@@ -96,6 +96,12 @@
     );
 
 ?>
+
+<script>
+  if(<?= $siswa['st'] ?> == 2){
+    alert("Keterima cek messages");
+  }
+</script>
 <!-- =========== -->
 
 <!-- ======= Header ======= -->
