@@ -32,6 +32,7 @@
                     })
                     .then(data => {
                         console.log('Fetched data:', data);
+                        const BASEURL = '<?= BASEURL ?>';
 
                         const tableBody = document.getElementById('tableBody');
                     tableBody.innerHTML = ''; // Clear any existing rows
@@ -48,7 +49,7 @@
                                         Pindahan
                                     </div>
                                     <img style="width: 30px; height: 30px; border-radius: 100%;" 
-                                        src="${item.profile ? 'public/assets/img/profile/' + item.profile : 'public/assets/img/default.png'}" 
+                                        src="${item.profile ? `${BASEURL}public/assets/img/profile/${item.profile}` : `${BASEURL}public/assets/img/default.png`}" 
                                         alt="foto">
                                 </td>
                                 <td class="text-center">${item.nama}</td>
@@ -67,7 +68,7 @@
                                         <button class="btn btn-success text-light" type="button" data-bs-toggle="modal" data-bs-target="#editModal" data-siswa='${JSON.stringify(item)}'>
                                             <i class="ri-file-edit-line"></i>
                                         </button>
-                                        <a class="btn btn-secondary text-light" type="button" target="_blank" href="${'<?= BASEURL ?>ViewAdminController/PrintSiswa/' + item.id_siswa}">
+                                        <a class="btn btn-secondary text-light" type="button" target="_blank" href="${BASEURL}ViewAdminController/PrintSiswa/${item.id_siswa}">
                                             <i class="bi bi-printer"></i>
                                         </a>
                                     </div>
@@ -187,7 +188,7 @@
                                     </div>
                                     <img style="width: 30px; height: 30px; border-radius: 100%;" 
                                         src="${item.profile ? 'public/assets/img/profile/' + item.profile : 'public/assets/img/default.png'}" 
-                                        alt="foto">
+                                        alt="foto2">
                                 </td>
                                 <td class="text-center">${item.nama}</td>
                                 <td class="text-center">${item.asal_sekolah}</td>
