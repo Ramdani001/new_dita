@@ -172,7 +172,7 @@
             <?php foreach ($data["list_siswa"] as $key => $value) { ?>
               <tr>
                 <td class="text-center">
-                  <img style="width: 30px; height: 30px; border-radius: 100%;" src="public/assets/img/profile/contoh.jpeg" alt="foto">
+                  <img style="width: 30px; height: 30px; border-radius: 100%;" src="<?= BASEURL ?>public/assets/img/profile/contoh.jpeg" alt="foto">
                 </td>
                 <td class="text-center"><?= $value["nama"] ?></td>
                 <td class="text-center"><?= $value["asal_sekolah"] ?></td>
