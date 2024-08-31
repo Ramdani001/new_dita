@@ -65,21 +65,21 @@
     <li class="nav-heading">Pages</li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed  bg-primary text-light " href="ViewAdminController/user">
+      <a class="nav-link collapsed  bg-primary text-light " href="<?= BASEURL ?>ViewAdminController/user">
         <i class="bi bi-person"></i>
         <span>User</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="ViewAdminController/siswaDaftar">
+      <a class="nav-link collapsed" href="<?= BASEURL ?>ViewAdminController/siswaDaftar">
         <i class="ri-graduation-cap-fill"></i>
         <span>Siswa Daftar</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="ViewAdminController/laporan">
+      <a class="nav-link collapsed" href="<?= BASEURL ?>ViewAdminController/laporan">
         <i class="ri-folder-chart-fill"></i>
         <span>Laporan Pendaftaran</span>
       </a>
