@@ -679,6 +679,19 @@
             </div>
           </div>
 
+          <div id="berkas_pindah" class="d-none">
+            <h6>
+              <b>
+                Surat Keterangan Pindah
+              </b>
+            </h6>
+            <div>
+              <a href="#" id="det_down_pindah"  title="ImageName" target="_blank">
+                <img src="" alt="" id="det_pindah" style="width: 200px; height: 250px;">
+              </a>
+            </div>
+          </div>
+
           
         </div>
 
@@ -890,7 +903,22 @@
         document.getElementById('det_down_lulus').href = base8 + fl8;
         document.getElementById('det_down_lulus').download = fl8;
 
-        console.log(siswa.pas_foto)
+        const base9 = base_url+"public/assets/img/pindah/";
+        const fl9 = siswa.pindah; 
+
+        document.getElementById('det_down_pindah').href = base9 + fl9;
+        document.getElementById('det_down_pindah').download = fl9;
+
+        // Assuming `siswa` is defined and has a property `jenis_daftar`
+if (siswa.jenis_daftar === "Pindahan") {
+    document.getElementById("berkas_pindah").classList.remove("d-none");
+} else {
+    document.getElementById("berkas_pindah").classList.add("d-none");
+    console.log("Tidak ada");
+}
+
+
+        console.log(siswa.jenis_daftar)
         // Img
         document.getElementById('det_kk').src = base_url+"public/assets/img/kk/"+siswa.kk;
         document.getElementById('det_akta').src = base_url+"public/assets/img/akta/"+siswa.akta;
@@ -901,6 +929,7 @@
         document.getElementById('det_sehat').src = base_url+"public/assets/img/sehat/"+siswa.sehat;
         document.getElementById('det_foto').src = base_url+"public/assets/img/pas_foto/"+siswa.pas_foto;
         document.getElementById('det_lulus').src = base_url+"public/assets/img/lulus/"+siswa.lulus;
+        document.getElementById('det_pindah').src = base_url+"public/assets/img/pindah/"+siswa.pindah;
 
 
     });
