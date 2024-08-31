@@ -231,10 +231,10 @@
 <!-- Icon W.a -->
 <div class="bottom-0 rigth-0 w-full" style="position: fixed; right: 0;">
     <a href="https://wa.link/3k09wn" target="_blank">
-      <img src="public/assets/img/w.a.png" alt="as" width="100">
+      <img src="<?= BASEURL ?>public/assets/img/wa-icon.png" alt="as" width="100">
     </a>
   </div>
-  <!-- Icon W.a -->    
+  <!-- Icon W.a -->
 <div class="d-flex">
       <div class="card-title w-100" style="border-bottom: 1px solid gray;">
         Formulir Pendaftaran Siswa Baru
@@ -1331,8 +1331,9 @@
     </form>
   </div>
 
+  
+  
 </main>
 <!-- Content -->
- 
 
 </div>
