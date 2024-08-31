@@ -121,7 +121,7 @@
             echo '
                 <div class="me-3 fs-4" style="color: rgb(33, 37, 41);">
                 <div style="width: 15px; height: 15px; background-color: blue; position: absolute; border-radius: 100%; margin-top: 2px; margin-left: -5px;"></div>
-                  <a href="/AdminController/messages/'.$person['id_person'].'" target="_blank" style="text-decoration: none; color: blue;">
+                  <a href="'.BASEURL.'/AdminController/messages/'.$person['id_person'].'" target="_blank" style="text-decoration: none; color: blue;">
                   <i class="bi bi-envelope"></i> 
                   </a>
                 </div>

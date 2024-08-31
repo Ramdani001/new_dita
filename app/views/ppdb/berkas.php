@@ -254,10 +254,10 @@
 
                 <input class="form-control" type="file" id="kipFile" name="kipFile" style="height: 40px;">
             </div>
-            <div class="mb-3" style="display: grid; gap: 5px; justify-items: center; width: 250px;">
-                <label for="kipFile" class="form-label">Surat Pindah Dari Sekolah Asal
+            <div class="mb-3 <?php if($siswa['jenis_daftar'] == 'Reguler') { echo 'd-none'; } ?>" style="display: grid; gap: 5px; justify-items: center; width: 250px;">
+                <label for="PindahFile" class="form-label">Surat Pindah Dari Sekolah Asal
 
-                <img src="<?= BASEURL ?>public/assets/img/pindah/<?= $pindah ?>" alt="" style="width: 200px;">
+                <img src="public/assets/img/pindah/<?= $pindah ?>" alt="" style="width: 200px;">
 
                 <input class="form-control" type="file" id="PindahFile" name="PindahFile" style="height: 40px;">
             </div>
