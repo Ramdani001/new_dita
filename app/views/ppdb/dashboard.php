@@ -58,7 +58,7 @@
     $jenis_kelamin = "";
 
     if($siswa){
-      $jenis_kelamin = $siswa['jk'];
+      $jenis_kelamin = $person['jk'];
     }
 
     $opt_jk = array(
@@ -363,7 +363,6 @@
                   <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin</label>
                 </div>
                 <div class="col-6">
-                  <!-- <input type="Text" id="jenis_kelamin" name="jenis_kelamin" class="form-control" value="<?= $person['jk'] ?>" > -->
                   <select class="form-select" name="jenis_kelamin" id="jenis_kelamin">
                       <?php
                       foreach ($opt_jk as $value => $label) {
