@@ -35,6 +35,8 @@ class Person_model{
     }
 
     public function update($data){
+        
+        $nama    = $_POST['nama_lengkap'];
         $id_person    = $_POST['id_person'];
         // $id_person    = $_POST['id_person'];
         $no_telp    = $_POST['no_telp'];
@@ -54,11 +56,13 @@ class Person_model{
         date_default_timezone_set('Asia/Jakarta');
         $updated_at = date('Y-m-d H:i:s');
 
-        $query = "UPDATE person SET no_telp='$no_telp', agama='$agama', alamat='$alamat', desa='$desa', kecamatan='$kecamatan', kab_kota='$kab_kota', provinsi='$provinsi', kode_pos='$kode_pos', kewarganegaraan='$kewarganegaraan', tempat_lhir='$tempat_lhr', jk='$jk', tanggal_lahir='$tanggal_lahir', rt='$rt', rw='$rw', updated_at='$updated_at' WHERE id_person='$id_person'";
+        $query = "UPDATE person SET nama='$nama', no_telp='$no_telp', agama='$agama', alamat='$alamat', desa='$desa', kecamatan='$kecamatan', kab_kota='$kab_kota', provinsi='$provinsi', kode_pos='$kode_pos', kewarganegaraan='$kewarganegaraan', tempat_lhir='$tempat_lhr', jk='$jk', tanggal_lahir='$tanggal_lahir', rt='$rt', rw='$rw', updated_at='$updated_at' WHERE id_person='$id_person'";
         $this->db->query($query);
         $this->db->execute();
-
+        // var_dump($query);
+        // die();
         return $this->db->rowCount();
+        
         
     }
 

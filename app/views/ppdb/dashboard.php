@@ -4,7 +4,7 @@
     $siswa = $data['siswa'];
     $parent = $data['parent'];
     $berkas = $data['berkas'];
-
+ 
     // Foto Profile
     $foto_profile = "";
     if($berkas){
@@ -55,6 +55,33 @@
       '6.000.000 - 10.000.000' => '6.000.000 - 10.000.000'
     );
 
+    $jenis_kelamin = "";
+
+    if($siswa){
+      $jenis_kelamin = $siswa['jk'];
+    }
+
+    $opt_jk = array(
+      'Laki-laki' => 'Laki-laki',
+      'Perempuan' => 'Perempuan'
+    );
+
+    
+    $agama = "";
+
+    if($person){
+      $agama = $person['agama'];
+    }
+
+    $opt_agama = array(
+      'Islam' => 'Islam',
+      'Kristen' => 'Kristen',
+      'Katolik' => 'Katolik',
+      'Hindu' => 'Hindu',
+      'Budha' => 'Budha',
+      'Khonghucu' => 'Khonghucu'
+    );
+
     // Jurusan
     $jurusan = "";
 
@@ -94,7 +121,7 @@
             echo '
                 <div class="me-3 fs-4" style="color: rgb(33, 37, 41);">
                 <div style="width: 15px; height: 15px; background-color: blue; position: absolute; border-radius: 100%; margin-top: 2px; margin-left: -5px;"></div>
-                  <a href="'.BASEURL.'/AdminController/messages/'.$person['id_person'].'" target="_blank" style="text-decoration: none; color: blue;">
+                  <a href="/AdminController/messages/'.$person['id_person'].'" target="_blank" style="text-decoration: none; color: blue;">
                   <i class="bi bi-envelope"></i> 
                   </a>
                 </div>
@@ -121,11 +148,11 @@
               <img src="'.BASEURL.'public/assets/img/profile/'.$berkas['profile'].'" alt="Profile" class="rounded-circle" style="width: 30px; height: 30px;">
             ';
           }else{
-            echo '<img src="'.BASEURL.'public/assets/img/default.png" alt="Profile" class="rounded-circle" style="width: 30px; height: 30px;">';
+            echo '<img src="public/assets/img/default.png" alt="Profile" class="rounded-circle" style="width: 30px; height: 30px;">';
           }
         ?>
 
-          <!-- <img src="<?= BASEURL ?>public/assets/img/profile/contoh.jpeg" alt="Profile" class="rounded-circle"> -->
+          <!-- <img src="public/assets/img/profile/contoh.jpeg" alt="Profile" class="rounded-circle"> -->
 
           <span class="d-none d-md-block dropdown-toggle ps-2"><?= $person['nama'] ?></span>
         </a><!-- End Profile Iamge Icon -->
@@ -144,7 +171,7 @@
           </li>
 
           <li>
-            <a class="dropdown-item d-flex align-items-center" href="<?= BASEURL ?>LoginController/logout">
+            <a class="dropdown-item d-flex align-items-center" href="LoginController/logout">
               <i class="bi bi-box-arrow-right"></i>
               <span>Sign Out</span>
             </a>
@@ -166,21 +193,21 @@
   <ul class="sidebar-nav" id="sidebar-nav">
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="<?= BASEURL ?>PPDBController/index/<?= $person['id_person'] ?>">
+      <a class="nav-link collapsed" href="/ppdb_dita/PPDBController/index/<?= $person['id_person'] ?>">
         <i class="bi bi-person"></i>
         <span>Formulir</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="<?= BASEURL ?>PPDBController/berkas/<?= $person['id_person'] ?>">
+      <a class="nav-link collapsed" href="/ppdb_dita/PPDBController/berkas/<?= $person['id_person'] ?>">
         <i class="bi bi-person"></i>
         <span>Upload Berkas</span>
       </a>
     </li>
 
     <!-- <li class="nav-item">
-      <a class="nav-link collapsed" href="<?= BASEURL ?>PPDBController/cetakKartu/<?= $person['id_person'] ?>">
+      <a class="nav-link collapsed" href="PPDBController/cetakKartu/<?= $person['id_person'] ?>">
         <i class="bi bi-question-circle"></i>
         <span>Cetak Kartu</span>
       </a>
@@ -192,8 +219,22 @@
 
 <!-- Content -->
 <main class="d-flex w-100 h-100 me-1 rounded shadow-lg p-3 card z-1" style="height: 87vh; margin-top: 5%; margin-left: 24%;">
-    <div class="card-title w-100" style="border-bottom: 1px solid gray;">
-      Formulir Pendaftaran Siswa Baru
+
+<!-- Icon W.a -->
+<div class="bottom-0 rigth-0 w-full" style="position: fixed; right: 0;">
+    <a href="https://wa.link/3k09wn" target="_blank">
+      <img src="public/assets/img/w.a.png" alt="as" width="100">
+    </a>
+  </div>
+  <!-- Icon W.a -->    
+<div class="d-flex">
+      <div class="card-title w-100" style="border-bottom: 1px solid gray;">
+        Formulir Pendaftaran Siswa Baru
+      </div>
+      <div class="d-flex p-3 gap-4">
+        <button id="btn_reguler" class="btn btn-primary" onclick="changeSiswa(1)">Reguler</button>
+        <button id="btn_pindah" class="btn btn-secondary" onclick="changeSiswa(2)">Pindahan</button>
+      </div>
     </div>
     <div class="header border p-2 d-flex">
       <!-- Btn Data Diri -->
@@ -314,7 +355,15 @@
                   <label for="jenis_kelamin" class="col-form-label">Jenis Kelamin</label>
                 </div>
                 <div class="col-6">
-                  <input type="Text" id="jenis_kelamin" name="jenis_kelamin" class="form-control" value="<?= $person['jk'] ?>" >
+                  <!-- <input type="Text" id="jenis_kelamin" name="jenis_kelamin" class="form-control" value="<?= $person['jk'] ?>" > -->
+                  <select class="form-select" name="jenis_kelamin" id="jenis_kelamin">
+                      <?php
+                      foreach ($opt_jk as $value => $label) {
+                          $selected = ($value == $jenis_kelamin) ? 'selected' : '';
+                          echo "<option value=\"$value\" $selected>$label</option>";
+                      }
+                      ?>
+                  </select>
                 </div>
               </div>
               
@@ -326,12 +375,11 @@
                   <label for="inputPassword6" class="col-form-label">Asal Sekolah</label>
                 </div>
                 <div class="col-6">
-                  <input type="Text" id="asal_sekolah" name="asal_sekolah" class="form-control" value="<?php if($siswa){
-                        echo $siswa['asal_sekolah'];
+                  <input type="Text" id="asal_sekolah" name="asal_sekolah" class="form-control text-start" value="<?php if($siswa){
+                        echo ltrim($siswa['asal_sekolah']);
                     }else{
-                      echo "";
-                      } ?>
-                  " >
+                      echo ltrim("");
+                      } ?>">
                 </div>
               </div>
             </td>
@@ -399,8 +447,7 @@
                     }else{
                       echo "";
                     }
-                  ?>
-                  " >
+                  ?>" >
                 </div>
               </div>
             </td>
@@ -417,8 +464,7 @@
                         }else{
                           echo "";
                         }
-                      ?>
-                      " >
+                      ?>" >
                   </div>
                 </div>
             </td>
@@ -429,14 +475,21 @@
                     <label for="agama" class="col-form-label">Agama</label>
                   </div>
                   <div class="col-6">
-                    <input type="Text" id="agama" name="agama" class="form-control" value="<?php
+                  <select class="form-select" name="agama" id="agama">
+                      <?php
+                      foreach ($opt_agama as $value => $label) {
+                          $selected = ($value == $agama) ? 'selected' : '';
+                          echo "<option value=\"$value\" $selected>$label</option>";
+                      }
+                      ?>
+                  </select>
+                    <!-- <input type="Text" id="agama" name="agama" class="form-control" value="<?php
                       if($person){
                         echo $person['agama'];
                       }else{
                         echo "";
                       }
-                    ?>
-                    " >
+                    ?>" > -->
                   </div>
                 </div>
             </td>
@@ -455,8 +508,7 @@
                     }else{
                       echo "";
                     }
-                  ?>
-                  " >
+                  ?>" >
                 </div>
               </div>
             </td>
@@ -473,8 +525,7 @@
                     }else{
                       echo "";
                     }
-                  ?>
-                  " >
+                  ?>" >
                 </div>
               </div>
             </td>
@@ -548,6 +599,44 @@
                       echo "";
                     }
                   ?>" >
+                </div>
+              </div>
+            </td>
+            <input type="hidden" name="jenis_daftar" id="jenis_daftar" value="<?php if($siswa){echo $siswa['jenis_daftar'];}else{ echo ""; } ?>">
+            <input type="hidden" name="local_jenis_daftar" id="local_jenis_daftar" value="<?php if($siswa){echo $siswa['jenis_daftar'];}else{ echo ""; } ?>">
+          </tr>
+          <tr>
+          <td id="al_awal" class="d-none">
+              <!-- Kelas Awal -->
+              <div class="row g-3 align-items-center m-2">
+                <div class="col-6">
+                  <label for="kip" class="col-form-label">Kelas Awal</label>
+                </div>
+                <div class="col-6">
+                  <input type="Text" id="kelas_awal" name="kelas_awal" class="form-control" value="<?php
+                    if($siswa){
+                      echo $siswa['kelas_awal'];
+                    }else{
+                      echo "";
+                    }
+                  ?>" >
+                </div>
+              </div> 
+            </td>
+          <td id="al_pindah" class="d-none">
+              <!-- Alasan Pindah -->
+              <div class="row g-3 align-items-center m-2">
+                <div class="col-6">
+                  <label for="kip" class="col-form-label">Alasan Pindah</label>
+                </div>
+                <div class="col-6">
+                  <textarea type="Text" id="alasan_pindah" name="alasan_pindah" class="form-control"><?php
+                    if($siswa){
+                      echo $siswa['alasan_pindah'];
+                    }else{
+                      echo "";
+                    }
+                  ?></textarea>
                 </div>
               </div>
             </td>
@@ -739,7 +828,7 @@
                 <div class="col-6">
                   <label for="kab_kota" class="col-form-label">Kabupaten/Kota</label>
                 </div>
-                <div class="col-6">
+                <div class="col-6"> 
                   <input type="Text" id="kab_kota" name="kab_kota" class="form-control" value="<?php
                     if($person){
                       echo $person['kab_kota'];
@@ -1193,7 +1282,7 @@
               </div>
            </div>
            <!-- Alamat -->
-
+ 
         </div>
 
         <div class="d-flex justify-content-end w-100 mt-3">
@@ -1228,11 +1317,15 @@
           <button type="button" class="btn btn-secondary me-3" style="width: 20%;" onclick="nextPage(31)">Back</button>
           <button type="submit" class="btn btn-primary" style="width: 20%;">Simpan</button>
         </div>
+        
       </div>
     </div>
     <!-- form Data foto -->
     </form>
   </div>
+
 </main>
 <!-- Content -->
+ 
+
 </div>

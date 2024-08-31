@@ -105,12 +105,12 @@ class PPDBController extends Controller {
     }
 
     public function insertFormulir($id = 0){
-          
+        
         $person = $this->model('Person_Model')->update($_POST);
         
         if($person > 0){
             $siswa = $this->model('Siswa_Model')->insert($_POST);
-            
+             
             if($siswa > 0){ 
                 $parent = $this->model('Parent_Model')->insert($_POST);
                 // var_dump($parent);
