@@ -156,7 +156,7 @@ class Siswa_Model{
     }
 
     public function getData(){
-        $query = "SELECT COUNT(*) as total_rows FROM siswa WHERE st = 0";
+        $query = "SELECT COUNT(*) as total_rows FROM siswa WHERE st=0";
         $this->db->query($query);
         $result = $this->db->single();
         return $result['total_rows'];
