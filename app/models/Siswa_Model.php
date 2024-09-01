@@ -83,7 +83,7 @@ class Siswa_Model{
             $this->db->bind(':biaya_sekolah', ''); 
             $this->db->bind(':sd', '');
             $this->db->bind(':smp', '');
-            $this->db->bind(':kip', $_POST['kip']);
+            $this->db->bind(':kip', $_POST['kip'] == "" ? "-" : $_POST['kip']);
             $this->db->bind(':cita_cita', $_POST['cita_cita']);
             $this->db->bind(':hobi', $_POST['hobi']);
             $this->db->bind(':anak_ke', $_POST['anak_ke']);
