@@ -450,7 +450,7 @@
           </div> -->
           <!-- Tempat Lahir -->
           <div class="mb-3">
-            <label for="det_lahir_ayah" class="form-label">Tempat Lahir</label>
+            <label for="det_lahir_ayah" class="form-label">Tanggal Lahir</label>
             <input type="text" class="form-control" id="det_lahir_ayah" disabled>
           </div>
           <!-- Pendidikan -->
@@ -491,7 +491,7 @@
             </div> -->
             <!-- Tempat Lahir -->
             <div class="mb-3">
-              <label for="det_lahir_ibu" class="form-label">Tempat Lahir</label>
+              <label for="det_lahir_ibu" class="form-label">Tanggal Lahir</label>
               <input type="text" class="form-control" id="det_lahir_ibu" disabled>
             </div>
             <!-- Pendidikan -->

@@ -169,6 +169,13 @@
                     <?= $siswa['lhir_ayah'] ?>
                 </span>
             </div>
+            <div style="display: flex;">
+                <span style="width: 250px;">Pendidikan</span>
+                <span style="width: 10px;">:</span>
+                <span>
+                    <?= $siswa['pendidikan_ayah'] ?>
+                </span>
+            </div>
             <!-- Pekerjaan -->
             <div style="display: flex;">
                 <span style="width: 250px;">Pekerjaan</span>
@@ -211,10 +218,17 @@
                 </span>
             </div>
             <div style="display: flex;">
-                <span style="width: 250px;">pendidikan</span>
+                <span style="width: 250px;">Pekerjaan</span>
                 <span style="width: 10px;">:</span>
                 <span>
                     <?= $siswa['pendidikan_ibu'] ?>
+                </span>
+            </div>
+            <div style="display: flex;">
+                <span style="width: 250px;">Pekerjaan</span>
+                <span style="width: 10px;">:</span>
+                <span>
+                    <?= $siswa['pekerjaan_ibu'] ?>
                 </span>
             </div>
             <!-- Penghasilan Perbulan -->
