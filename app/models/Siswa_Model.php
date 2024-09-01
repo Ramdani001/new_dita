@@ -63,7 +63,9 @@ class Siswa_Model{
         $this->db->query($sqlS);
         $this->db->bind(':id_person', $id_person);
         $record2 = $this->db->single();
-        $id_siswa = $record2['id_siswa'];
+        if($record2){
+            $id_siswa = (int)$record2['id_siswa'];
+        }
  
         if(!$id_siswa){ 
         //     var_dump("Masuk IF");
@@ -129,7 +131,8 @@ class Siswa_Model{
             $jenis_daftar                   = $_POST['jenis_daftar'];
 
             $query = "UPDATE siswa SET no_pendaftaran='$no_pendaftaran', asal_sekolah='$asal_sekolah', npsn_sekolah_asal='$npsn_sekolah_asal',nisn='$nisn', nik='$nik', biaya_sekolah='$biaya_sekolah', sd='$sd', smp='$smp', kip='$kip', cita_cita='$cita_cita', hobi='$hobi', anak_ke='$anak_ke', transportasi='$transportasi', jarak_sekolah='$jarak_sekolah', waktu_tempuh='$waktu_tempuh', jml_saudara='$jml_saudara', no_kk='$no_kk', kepala_keluarga='$kepala_keluarga', jurusan='$jurusan', kelas_awal='$kelas_awal', alasan_pindah='$alasan_pindah', jenis_daftar='$jenis_daftar', updated_at='$created_at' WHERE id_siswa='$id_siswa' ";
-
+            // var_dump($query);
+            // die();
             $this->db->query($query);
         }
  
