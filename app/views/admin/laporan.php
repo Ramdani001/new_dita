@@ -159,7 +159,32 @@
           </div>
 
         </div>
-
+        <div class="p-2 ">
+          <form action="<?= BASEURL ?>ViewAdminController/reportFilter" method="POST" class="d-flex" style="justify-content: space-between;">
+            <div class="d-flex">
+              <div class="pe-3">
+                <span>Filter Data</span>
+                <select id="filter_data" name="filter_data" class="form-select" aria-label="Default select example">
+                  <option value="getAll" selected>All</option>
+                  <option value="Reguler">Reguler</option>
+                  <option value="Pindahan">Pindahan</option>
+                </select>
+              </div>
+              <div>
+                <span>Status Daftar</span>
+                <select id="filter_status" name="filter_status" class="form-select" aria-label="Default select example">
+                  <option value="getAll" selected>All</option>
+                  <option value="1">Diterima</option>
+                  <option value="2">Ditolak</option>
+                  <option value="0">Menunggu</option>
+                </select>
+              </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+          </form>
+        </div>
         <table class="table table-hover">
           <thead>
             <th class="text-center">No</th>

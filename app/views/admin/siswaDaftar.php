@@ -95,10 +95,15 @@
 
     <div class="card">
       <div class="card-body">
-        <!-- <div style="display: flex; justify-content: space-between; align-items: center;">
-          <h5 class="card-title">Siswa Daftar</h5>
-          <input type="text" name="search" id="search" class="shadow-md" placeholder="Masukan NISN" style="height: 30px; width: 300px; padding: 10px; border-radius: 5px;" onpress="search(this.value)">
-        </div> -->
+        
+        <div class="p-2">
+          <span>Filter Data</span>
+          <select id="filter_data" class="form-select" aria-label="Default select example">
+            <option value="getAll" selected>All</option>
+            <option value="reguler">Reguler</option>
+            <option value="pindahan">Pindahan</option>
+          </select>
+        </div>
         <table class="table table-hover" id="siswaTable">
           <thead>
             <th class="text-center">No</th>
@@ -112,66 +117,6 @@
           <tbody id="tableBody">
             <!-- Rows will be inserted here by JavaScript -->
           </tbody>
-          <!-- <tbody>
-            <?php $i = 1; foreach ($data["list_siswa"] as $key => $value) { ?>
-              <tr>
-                <td class="text-center"><?= $i ?></td>
-                <td class="text-center">
-                  <div class="position-absolute <?php if($value['jenis_daftar'] == 'Reguler') { echo 'd-none'; } ?>"  style="background-color: blue; font-size: 10px; padding: 5px; color: white; border-radius: 5px; margin-top: -10px; margin-left: -5px; transform: rotate(-20deg);">
-                    Pindahan
-                  </div>
-                  <?php if($value['profile'] != ""){ ?>
-                    <img style="width: 50px; height: 50px; border-radius: 100%;" src="public/assets/img/profile/<?= $value['profile'] ?>" alt="foto">
-                   <?php }else{ ?>
-                    <img style="width: 50px; height: 50px; border-radius: 100%;" src="public/assets/img/default.png" alt="foto">
-                   <?php } ?>
-                </td>
-                <td class="text-center"><?= $value["nama"] ?></td>
-                <td class="text-center"><?= $value["asal_sekolah"] ?></td>
-                <td class="text-center"><?= $value["no_telp"] ?></td>
-                <td class="text-center">
-                  <button class="btn 
-                  <?php
-                      if($value["st"] == 0 ){
-                        echo "btn-secondary";
-                      }else if($value['st'] == 1){
-                        echo "btn-success";
-                      }else{
-                        echo "btn-danger";
-                      }
-                    ?>
-                  ">
-                    <?php
-                      if($value["st"] == 0 ){
-                        echo "Menunggu";
-                      }else if($value['st'] == 1){
-                        echo "Diterima";
-                      }else{
-                        echo "Ditolak";
-                      }
-                    ?>
-                  </button>
-                  <?php $i++ ?>
-                </td>
-                <td class="text-center">
-                  <div class="d-flex gap-3 justify-content-center">
-  
-                    <button class="btn btn-primary text-light" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-siswa='<?= json_encode($value) ?>'>
-                      <i class="ri-eye-line"></i>
-                    </button>
-  
-                    <button class="btn btn-success text-light" type="button" data-bs-toggle="modal" data-bs-target="#editModal" data-siswa='<?= json_encode($value) ?>'>
-                      <i class="ri-file-edit-line"></i> 
-                    </button>
- 
-                    <a class="btn btn-secondary text-light" type="button" target="_blank" href="ViewAdminController/PrintSiswa/<?= $value['id_siswa'] ?>">
-                    <i class="bi bi-printer"></i>
-                    </a>
-                  </div>
-                </td>
-              </tr>
-            <?php } ?>
-          </tbody> -->
         </table>
        
       </div>
@@ -710,7 +655,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="editModalLabel">Edit Siswa</h1>
+        <h1 class="modal-title fs-5" id="editModalLabel">Status Pendaftaran Siswa</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
