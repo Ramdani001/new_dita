@@ -37,7 +37,7 @@ class PPDBController extends Controller {
         $this->db->query($sql);
         $this->db->bind(':id_berkas', $id_berkas);
         $data['berkas'] = $this->db->single();
-       
+        
         $this->view('admin/code/header', $data);
             $this->view('ppdb/dashboard',  $data);
         $this->view('admin/code/footer');
@@ -129,6 +129,8 @@ class PPDBController extends Controller {
                         $sql = "SELECT * FROM person WHERE id_person=".$id_person;
                         $this->db->query($sql);
                         $data['person'] = $this->db->single();
+                        
+                        $_SESSION['alert_message'] = "Data formulir sudah terkirim...";
                     
                         header("Location: ".BASEURL."PPDBController/$id_person");
                         exit(); 

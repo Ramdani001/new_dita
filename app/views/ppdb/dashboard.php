@@ -1,5 +1,10 @@
 <!-- Mengambil nama -->
 <?php
+
+    if($_SESSION['alert_message']){
+      echo "<script> alert('".$_SESSION['alert_message']."') </script>";
+    }
+
     $person = $data['person'];
     $siswa = $data['siswa'];
     $parent = $data['parent'];
@@ -201,14 +206,14 @@
   <ul class="sidebar-nav" id="sidebar-nav">
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="/ppdb_dita/PPDBController/index/<?= $person['id_person'] ?>">
+      <a class="nav-link collapsed" href="/ditappdb/PPDBController/index/<?= $person['id_person'] ?>">
         <i class="bi bi-person"></i>
         <span>Formulir</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="/ppdb_dita/PPDBController/berkas/<?= $person['id_person'] ?>">
+      <a class="nav-link collapsed" href="/ditappdb/PPDBController/berkas/<?= $person['id_person'] ?>">
         <i class="bi bi-person"></i>
         <span>Upload Berkas</span>
       </a>
@@ -284,7 +289,7 @@
       </div>
       
     </div>
-
+ 
   <form action="<?= BASEURL ?>PPDBController/insertFormulir/<?= $person['id_person'] ?>" method="post" enctype="multipart/form-data">
     <!-- form data diri -->
  

@@ -2,7 +2,7 @@
 
 class ViewAdminController extends Controller {
     public function index($id = 0){
-        
+         
         $data['id_person'] = $id; 
         $data['title'] = "SMK PROFITA";
 
@@ -38,7 +38,7 @@ class ViewAdminController extends Controller {
 
         $data['list_siswa'] = $this->model('Siswa_model')->getAll(); 
         $data['auth'] = $this->model('Person_model')->getById($_SESSION["id_person"]);
-
+ 
         $this->view('admin/code/header', $data);
             $this->view('admin/siswaDaftar', $data);
         $this->view('admin/code/footer');
@@ -53,11 +53,42 @@ class ViewAdminController extends Controller {
         header('Content-Type: application/json');
         echo $jsonData;
     }
+    public function reguler($nisn = 0){
 
+        $data['list_siswa'] = $this->model('Siswa_model')->regulerGet(); 
+        $jsonData = json_encode($data["list_siswa"], JSON_PRETTY_PRINT);
+
+        // Menampilkan JSON
+        header('Content-Type: application/json');
+        echo $jsonData;
+    }
+
+    public function pindahan($nisn = 0){
+
+        $data['list_siswa'] = $this->model('Siswa_model')->pindahanGet(); 
+        $jsonData = json_encode($data["list_siswa"], JSON_PRETTY_PRINT);
+
+        // Menampilkan JSON
+        header('Content-Type: application/json');
+        echo $jsonData;
+    }
+ 
     public function laporan(){
         $data['title'] = "SMK PROFITA";
 
         $data['list_siswa'] = $this->model('Siswa_model')->getAll();
+        $data['auth'] = $this->model('Person_model')->getById($_SESSION["id_person"]);
+
+        $this->view('admin/code/header', $data);
+            $this->view('admin/laporan', $data);
+        $this->view('admin/code/footer');
+    }
+
+    public function reportFilter(){
+        
+        $data['title'] = "SMK PROFITA"; 
+
+        $data['list_siswa'] = $this->model('Siswa_model')->getFilter($_POST);
         $data['auth'] = $this->model('Person_model')->getById($_SESSION["id_person"]);
 
         $this->view('admin/code/header', $data);

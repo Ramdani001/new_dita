@@ -22,8 +22,76 @@
 
      <script>
 
+        var filter_data = document.getElementById("filter_data");
+ 
+        filter_data.addEventListener('change', function() {
+
+            var filter = this.value;
+
+            fetch(`http://localhost/ditappdb/ViewAdminController/`+filter+``)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Fetched data:', data);
+                        const BASEURL = '<?= BASEURL ?>';
+
+                        const tableBody = document.getElementById('tableBody');
+                    tableBody.innerHTML = ''; // Clear any existing rows
+
+                    data.forEach((item, index) => {
+                        const row = document.createElement('tr');
+
+                            // Construct the row HTML
+                            row.innerHTML = `
+                                <td class="text-center">${index + 1}</td>
+                                <td class="text-center">
+                                    <div class="position-absolute ${item.jenis_daftar === 'Reguler' ? 'd-none' : ''}" 
+                                        style="background-color: green; font-size: 10px; padding: 5px; color: white; border-radius: 5px; margin-top: -10px; margin-left: -5px; transform: rotate(-20deg);">
+                                        Pindahan
+                                    </div>
+                                    <img style="width: 30px; height: 30px; border-radius: 100%;" 
+                                        src="${item.profile ? `${BASEURL}public/assets/img/profile/${item.profile}` : `${BASEURL}public/assets/img/default.png`}" 
+                                        alt="foto">
+                                </td>
+                                <td class="text-center">${item.nama}</td>
+                                <td class="text-center">${item.asal_sekolah}</td>
+                                <td class="text-center">${item.no_telp}</td>
+                                <td class="text-center">
+                                    <button class="btn ${item.st === 0 ? 'btn-secondary' : item.st === 1 ? 'btn-success' : 'btn-danger'}">
+                                        ${item.st === 0 ? 'Menunggu' : item.st === 1 ? 'Diterima' : 'Ditolak'}
+                                    </button>
+                                </td>
+                                <td class="text-center">
+                                    <div class="d-flex gap-3 justify-content-center">
+                                        <button class="btn btn-primary text-light" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-siswa='${JSON.stringify(item)}'>
+                                            <i class="ri-eye-line"></i>
+                                        </button>
+                                        <button class="btn btn-success text-light" type="button" data-bs-toggle="modal" data-bs-target="#editModal" data-siswa='${JSON.stringify(item)}'>
+                                            <i class="ri-file-edit-line"></i>
+                                        </button>
+                                        <a class="btn btn-secondary text-light" type="button" target="_blank" href="${BASEURL}ViewAdminController/PrintSiswa/${item.id_siswa}">
+                                            <i class="bi bi-printer"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            `;
+
+                            // Append the row to the table body
+                            tableBody.appendChild(row);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation:', error);
+                    });
+
+        });
+
         $(document).ready(function() {
-            fetch(`http://localhost/ppdb_dita/ViewAdminController/getAll`)
+            fetch(`http://localhost/ditappdb/ViewAdminController/getAll`)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Network response was not ok');
@@ -90,7 +158,7 @@
             let sendData = "";
 
             if(!val){
-                fetch(`http://localhost/ppdb_dita/ViewAdminController/getAll`)
+                fetch(`http://localhost/ditappdb/ViewAdminController/getAll`)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Network response was not ok');
@@ -162,7 +230,7 @@
                 }
 
                 console.log(sendData);
-                fetch(`http://localhost/ppdb_dita/ViewAdminController/jsonSiswa/${parseInt(sendData)}`)
+                fetch(`http://localhost/ditappdb/ViewAdminController/jsonSiswa/${parseInt(sendData)}`)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Network response was not ok');
@@ -225,7 +293,7 @@
             }else if(event.key == "Backspace"){
                 sendData = document.getElementById('search').value;
                 console.log(sendData);
-                fetch(`http://localhost/ppdb_dita/ViewAdminController/jsonSiswa/${sendData}`)
+                fetch(`http://localhost/ditappdb/ViewAdminController/jsonSiswa/${sendData}`)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Network response was not ok');

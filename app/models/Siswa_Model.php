@@ -23,6 +23,77 @@ class Siswa_Model{
         return $this->db->resultSet();
     }
 
+    public function getFilter($filStat){
+        
+        $filterData = $filStat['filter_data'];
+
+        if($filStat['filter_status'] == "getAll"){
+            $status     = $filStat['filter_status'];
+        }else{
+            $status     = (int)$filStat['filter_status'];
+        }
+
+        $jenis_daftar = "";
+        if($filterData == "getAll"){
+            $jenis_daftar = "";
+        }else{
+            $jenis_daftar = "WHERE s.jenis_daftar='".$filterData."'";
+        }
+
+        $status_siswa = "";
+        if($status == "getAll"){
+            $status_siswa .= "";
+        }else{
+            if($filterData == "getAll"){
+                $status_siswa .= " WHERE s.st=".$status." ";
+            }else{
+                $status_siswa .= " AND s.st=".$status." ";
+            }
+        }
+
+        
+        $this->db->query('
+            SELECT * 
+            FROM ' . $this->table . ' s 
+            INNER JOIN person p ON s.id_person = p.id_person 
+            LEFT JOIN berkas k ON p.id_berkas = k.id_berkas 
+            LEFT JOIN parents z ON z.id_siswa = s.id_siswa
+            '.$jenis_daftar.' '.$status_siswa.'
+        ');
+
+        return $this->db->resultSet();
+    }
+
+    public function regulerGet(){
+        // $this->db->query('SELECT * FROM '. $this->table .' s INNER JOIN person p ON s.id_person = p.id_person RIGHT JOIN berkas k ON p.id_berkas = k.id_berkas RIGHT JOIN parents z ON z.id_siswa = s.id_siswa');
+        $this->db->query('
+            SELECT * 
+            FROM ' . $this->table . ' s 
+            INNER JOIN person p ON s.id_person = p.id_person 
+            LEFT JOIN berkas k ON p.id_berkas = k.id_berkas 
+            LEFT JOIN parents z ON z.id_siswa = s.id_siswa
+            WHERE s.jenis_daftar = "Reguler"
+        ');
+
+
+        return $this->db->resultSet();
+    }
+
+    public function pindahanGet(){
+        // $this->db->query('SELECT * FROM '. $this->table .' s INNER JOIN person p ON s.id_person = p.id_person RIGHT JOIN berkas k ON p.id_berkas = k.id_berkas RIGHT JOIN parents z ON z.id_siswa = s.id_siswa');
+        $this->db->query('
+            SELECT * 
+            FROM ' . $this->table . ' s 
+            INNER JOIN person p ON s.id_person = p.id_person 
+            LEFT JOIN berkas k ON p.id_berkas = k.id_berkas 
+            LEFT JOIN parents z ON z.id_siswa = s.id_siswa
+            WHERE s.jenis_daftar = "Pindahan"
+        ');
+
+
+        return $this->db->resultSet();
+    }
+
     public function insert(){
         date_default_timezone_set('Asia/Jakarta');
 
