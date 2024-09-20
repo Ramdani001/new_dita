@@ -48,5 +48,7 @@ class Landing extends Controller {
         $this->view('templates/footer');
 
     }
+    
+
 
 }

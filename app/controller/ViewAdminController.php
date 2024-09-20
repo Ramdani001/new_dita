@@ -11,7 +11,7 @@ class ViewAdminController extends Controller {
 
         $data['daftar'] = $this->model('Siswa_model')->getDaftar();
 
-        $data['user'] = $this->model('Siswa_model')->getUser();
+        $data['user'] = $this->model('Siswa_model')->getUser(); 
 
 
 
@@ -82,7 +82,7 @@ class ViewAdminController extends Controller {
 
         echo json_encode($data);
 
-    }
+    } 
   
     public function PrintSiswa($id = 0){
         $data['title'] = "SMK PROFITA";

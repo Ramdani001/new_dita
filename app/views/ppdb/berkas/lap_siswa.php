@@ -218,7 +218,7 @@
                 </span>
             </div>
             <div style="display: flex;">
-                <span style="width: 250px;">Pekerjaan</span>
+                <span style="width: 250px;">Pendidikan</span>
                 <span style="width: 10px;">:</span>
                 <span>
                     <?= $siswa['pendidikan_ibu'] ?>
